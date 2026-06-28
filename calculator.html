@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: hsl(225, 32%, 10%);
+            color: WHITE;
+        }
+
+        .btn{
+            width: 70px; 
+            height: 60px; 
+            border-radius: 18px; 
+            margin-top: 10px; 
+            background-color: hsl(224, 20%, 18%);
+            border-color:#353c4a; 
+            COLOR: WHITE;
+            FONT-WEIGHT: BOLD;
+            font-size: 20px;
+        }
+
+        .box{
+            margin:auto;
+            width:380px; 
+            height: 550px;
+            margin-top: 100px; 
+            border-radius: 20px;  
+            border-color: black; 
+            background-color: hsl(223, 26%, 14%);
+            COLOR: WHITE;
+            box-shadow: 0px 0px 10px 5px hsl(226, 33%, 18%);
+        }
+
+        .field{
+            width: 85%; 
+            height:50px; 
+            margin-left: 5.5%; 
+            margin-top: 20px;
+            text-align: right; 
+            border-radius: 5px;  
+            border-color: black; 
+            background-color: #0b0f18;
+            COLOR: WHITE;
+            font-size: 20px;
+        }
+
+        .btn:hover{
+            background-color: hsl(225, 32%, 10%);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="box" sty>
+        
+        <label style="margin-left: 5.5%; font-weight: bold; font-size: 25px;">Calculator</label>
+        <input type="text" placeholder="0" id="main" class="field">
+           
+          <div style="display: flex; gap: 20px; margin-left: 5.5%; margin-top: 20px;">
+            <button class="btn" onclick="Ac()" style="color: #FFA726;">AC</button>
+            <button class="btn" onclick="C()" style="color: #FFA726;">C</button>
+            <button class="btn" onclick="display('%')" style="color: #FFA726;">%</button>
+            <button class="btn" onclick="display('/')" style="background-color: #D96B00;">/</button>
+          </div>
+
+          <div style="display: flex; gap: 20px; margin-left: 5.5%; margin-top: 10px;">
+            <button class="btn" onclick="display('1')">1</button>
+            <button class="btn" onclick="display('2')">2</button>
+            <button class="btn" onclick="display('3')">3</button>
+            <button class="btn" onclick="display('+')" style="background-color: #D96B00;">+</button>
+          </div>
+
+          <div style="display: flex; gap: 20px; margin-left: 5.5%; margin-top: 10px;">
+            <button class="btn" onclick="display('4')">4</button>
+            <button class="btn" onclick="display('5')">5</button>
+            <button class="btn" onclick="display('6')">6</button>
+            <button class="btn" onclick="display('-')" style="background-color: #D96B00;">-</button>
+         </div>
+
+        <div style="display: flex; gap: 20px; margin-left: 5.5%; margin-top: 10px;">
+            <button class="btn" onclick="display('7')">7</button>
+            <button class="btn" onclick="display('8')">8</button>
+            <button class="btn" onclick="display('9')">9</button>
+           <button class="btn" onclick="display('*')" style="background-color: #D96B00;">*</button>
+        </div>    
+
+        <div style="display: flex; gap: 20px; margin-left: 5.5%; margin-top: 10px;">
+            <button class="btn" onclick="display('0')">0</button>
+            <button class="btn" onclick="display('.')">●</button>
+            <button class="btn" onclick="display('**')">^</button>
+            <button class="btn" onclick="calculate()"  style="background-color: #D96B00;">=</button>
+    </div>
+
+    <script>
+        function display(value){
+            document.getElementById("main").value+=value;
+        }
+
+        function press(){
+            document.getElementById("main").value="Syntax Error";
+        }
+        function Ac(){
+            document.getElementById("main").value=""
+        }
+
+        function C(){
+            var x=document.getElementById("main").value;
+            document.getElementById("main").value=x.substring(0,x.length-1);
+        }
+        
+        function calculate(){
+            var x=document.getElementById("main").value;
+            var y=eval(x);
+            document.getElementById("main").value=y;
+        }
+
+        
+    </script>
+
+</body>
+</html>
